@@ -6,6 +6,7 @@ import pyttsx3
 
 #text = s2t.get()
 #t2s.play(text)
+# ...
 
 def main():
     r = sr.Recognizer()
