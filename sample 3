@@ -1,0 +1,52 @@
+import speech_recognition as sr
+import pyttsx3 
+
+#import text2speech as t2s
+#import speech2text as s2t
+
+#text = s2t.get()
+#t2s.play(text)
+
+def main():
+    r = sr.Recognizer()
+
+
+    with sr.Microphone() as source:
+        r.adjust_for_ambient_noise(source)
+        text_speech = pyttsx3.init()
+
+        print("Please say something...")
+
+        audio = r.listen(source)
+        text = r.recognize_google(audio)
+
+
+        try:
+            print("You have said : \n " + text)
+            
+            text_speech.say(text)
+            text_speech.runAndWait()
+
+        except Exception as e:
+
+            print("Error : " + str(e))
+
+
+if  __name__ == "__main__":
+     main()
+
+
+
+# 1. Learn how to push code to git
+# 2. Split code into two files a) text to speech b) speech to text
+# 3. Run the current code with machine learning as is
+# 4. Integrate this code with speech code as described below
+# 5. Update Machine Learning Code to Add other currency notes and update step 4
+
+# algorithm 
+
+# * say start 
+# * camera on
+# * "place currency note"
+# * use AI/ML to detect currency note
+# * say value of note 
